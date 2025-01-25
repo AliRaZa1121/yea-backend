@@ -1,0 +1,24 @@
+export enum TokenReason {
+  FORGOT_PASSWORD = 'FORGOT_PASSWORD',
+  RESET_PASSWORD = 'RESET_PASSWORD',
+  VERIFICATION = 'VERIFICATION',
+  CHANGE_PASSWORD = 'CHANGE_PASSWORD',
+}
+
+export enum TokenStatus {
+  EXPIRED = 'EXPIRED',
+  ALIVE = 'ALIVE',
+}
+
+export enum EventType {
+  WEDDING = 'WEDDING',
+  BIRTHDAY = 'BIRTHDAY',
+  CORPORATE = 'CORPORATE',
+  OTHER = 'OTHER',
+}
+
+export enum ServiceType {
+  FULL_DAY = 'FULL_DAY',
+  HALF_DAY = 'HALF_DAY',
+  HOURLY = 'HOURLY',
+}
