@@ -26,6 +26,21 @@
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
+
+
+## Requirements
+
+- **Node.js**:
+    - Version **20.18.1** or **18.8.0** is required.
+  
+- **Docker**:
+    - Ensure that Docker is installed on your system. For instructions, please visit the official [Docker installation guide](https://docs.docker.com/get-docker/).
+  
+- **WSL Setup**:
+    - If you are on Windows, make sure Windows Subsystem for Linux (WSL) is installed. You can find the setup instructions [here](https://docs.microsoft.com/en-us/windows/wsl/install).
+
+## Installation
+
 ## Project setup
 
 ```bash
