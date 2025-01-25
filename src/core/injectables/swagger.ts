@@ -8,8 +8,8 @@ import * as bodyParser from 'body-parser';
 
 export default function InjectSwagger(app: INestApplication) {
   const config = new DocumentBuilder()
-    .setTitle('Herogram Backend API')
-    .setDescription('The Herogram Backend API description')
+    .setTitle('Backend API')
+    .setDescription('The Backend API description')
     .setVersion(process.env.APP_VERSION || '1.0')
     .addTag('Auth')
     .addBearerAuth(
