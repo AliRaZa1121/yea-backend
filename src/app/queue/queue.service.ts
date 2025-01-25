@@ -7,15 +7,12 @@ import { SendMailMessageInterface } from 'src/utilities/interfaces/mail-interfac
 
 @Injectable()
 export default class QueueService {
+  constructor(
+    @InjectQueue(REGISTERED_QUEUE.QUEUE)
+    private readonly queuesHandlerEvent: Queue,
+  ) {}
 
-    constructor(
-        @InjectQueue(REGISTERED_QUEUE.QUEUE)
-        private readonly queuesHandlerEvent: Queue,
-    ) { }
-
-
-    bullQueEmail(data: SendMailMessageInterface) {
-        this.queuesHandlerEvent.add(QueueJobsEnum.EMAIL_JOB, data);
-    }
-
+  bullQueEmail(data: SendMailMessageInterface) {
+    this.queuesHandlerEvent.add(QueueJobsEnum.EMAIL_JOB, data);
+  }
 }

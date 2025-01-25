@@ -8,23 +8,23 @@ import QueueService from './queue.service';
 
 @Global()
 @Module({
-    imports: [
-        BullModule.forRootAsync({
-            imports: [ConfigModule],
-            useFactory: async (configService: ConfigService) => ({
-                redis: {
-                    host: configService.get<string>('REDIS.HOST'),
-                    port: configService.get<number>('REDIS.PORT'),
-                },
-            }),
-            inject: [ConfigService],
-        }),
-        BullModule.registerQueue({
-            name: REGISTERED_QUEUE.QUEUE,
-        }),
-        MailModule,
-    ],
-    exports: [QueueService],
-    providers: [QueueService, QueueEventHandler],
+  imports: [
+    BullModule.forRootAsync({
+      imports: [ConfigModule],
+      useFactory: async (configService: ConfigService) => ({
+        redis: {
+          host: configService.get<string>('REDIS.HOST'),
+          port: configService.get<number>('REDIS.PORT'),
+        },
+      }),
+      inject: [ConfigService],
+    }),
+    BullModule.registerQueue({
+      name: REGISTERED_QUEUE.QUEUE,
+    }),
+    MailModule,
+  ],
+  exports: [QueueService],
+  providers: [QueueService, QueueEventHandler],
 })
-export class QueueModule { }
+export class QueueModule {}

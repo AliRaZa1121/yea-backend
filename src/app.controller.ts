@@ -8,7 +8,7 @@ import { BaseResponseDto } from './utilities/swagger-responses/base-response';
 
 @ApiRouting({ tag: 'App', path: '/' })
 export class AppController {
-  constructor(private readonly appService: AppService) { }
+  constructor(private readonly appService: AppService) {}
 
   @Get()
   getHello(): string {
@@ -17,9 +17,9 @@ export class AppController {
 
   @Get('/welcome')
   @Authorized()
-  getWelcome(@AuthUser() authUser: UserDocument): Promise<BaseResponseDto<string>> {
+  getWelcome(
+    @AuthUser() authUser: UserDocument,
+  ): Promise<BaseResponseDto<string>> {
     return this.appService.getWelcome(authUser);
   }
-
 }
-

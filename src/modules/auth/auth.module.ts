@@ -6,17 +6,16 @@ import { JwtModule } from '@nestjs/jwt';
 import { TokenModule } from '../tokens/token.module';
 
 @Module({
-    imports: [
-        RedisModule,
-        TokenModule,
-        JwtModule.register({
-            global: true,
-            signOptions: {
-            }
-        }),
-    ],
-    exports: [AuthService],
-    providers: [AuthService],
-    controllers: [AuthController],
+  imports: [
+    RedisModule,
+    TokenModule,
+    JwtModule.register({
+      global: true,
+      signOptions: {},
+    }),
+  ],
+  exports: [AuthService],
+  providers: [AuthService],
+  controllers: [AuthController],
 })
-export class AuthModule { }
+export class AuthModule {}

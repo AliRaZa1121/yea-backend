@@ -5,17 +5,23 @@ import { Token, TokenDocument } from '../database/schemas/token.schema';
 import { FilterQuery } from 'mongoose';
 @Injectable()
 export class TokenService {
-    constructor(private _databaseService: DatabaseService) { }
+  constructor(private _databaseService: DatabaseService) {}
 
-    async createPasswordToken(data: CreatePasswordTokenRequestDTO): Promise<string> {
-        const token = await this._databaseService.create(Token.name, {
-            reason: data.reason,
-            userId: data.userId,
-        });
-        return token.identifier;
-    }
+  async createPasswordToken(
+    data: CreatePasswordTokenRequestDTO,
+  ): Promise<string> {
+    const token = await this._databaseService.create(Token.name, {
+      reason: data.reason,
+      userId: data.userId,
+    });
+    return token.identifier;
+  }
 
-    async getToken(whereClause: FilterQuery<TokenDocument>): Promise<TokenDocument> {
-        return await this._databaseService.findOne(Token.name, whereClause, [{ field: 'userId', select: '_id' }]);
-    }
+  async getToken(
+    whereClause: FilterQuery<TokenDocument>,
+  ): Promise<TokenDocument> {
+    return await this._databaseService.findOne(Token.name, whereClause, [
+      { field: 'userId', select: '_id' },
+    ]);
+  }
 }

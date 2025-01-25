@@ -90,11 +90,11 @@ export class Logger {
       Morgan.token('responsebody', (req: any, res: any): string => {
         let str = '';
 
-        if ((res as any).__ss_body) {
+        if (res.__ss_body) {
           try {
-            str = JSON.stringify((res as any).__ss_body, null, 4);
+            str = JSON.stringify(res.__ss_body, null, 4);
           } catch (e) {
-            str = (res as any).__ss_body;
+            str = res.__ss_body;
           }
         }
         return str;

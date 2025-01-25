@@ -1,10 +1,10 @@
-import { IsEnum, IsMongoId } from "class-validator";
-import { TokenReason } from "src/utilities/enums/database.enum";
+import { IsEnum, IsMongoId } from 'class-validator';
+import { TokenReason } from 'src/utilities/enums/database.enum';
 
 export default class CreatePasswordTokenRequestDTO {
-    @IsEnum(TokenReason)
-    reason: TokenReason;
+  @IsEnum(TokenReason)
+  reason: TokenReason;
 
-    @IsMongoId()
-    userId: string;
+  @IsMongoId()
+  userId: string;
 }

@@ -11,7 +11,6 @@ import { RedisModule } from './app/cache/redis.module';
 import { QueueModule } from './app/queue/queue.module';
 import { MailModule } from './app/mail/mail.module';
 
-
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -25,7 +24,7 @@ import { MailModule } from './app/mail/mail.module';
     DatabaseModule,
     MailModule,
     AuthModule,
-    TokenModule
+    TokenModule,
   ],
   controllers: [AppController],
   providers: [
@@ -33,4 +32,4 @@ import { MailModule } from './app/mail/mail.module';
     { provide: APP_FILTER, useClass: HttpExceptionFilter },
   ],
 })
-export class AppModule { }
+export class AppModule {}
